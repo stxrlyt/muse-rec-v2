@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Header from "../components/header";
 import GenreSelector from "../components/genreSelector";
-import { X, Play, CheckCircle2, Sparkles, ThumbsUp, ThumbsDown } from "lucide-react";
+import SongCard from "../components/songCard";
+import { X, Play } from "lucide-react";
 
 export default function FindMore() {
     const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
@@ -137,42 +138,7 @@ export default function FindMore() {
                     <div className="mt-6">
                         <h2 className="text-xl font-bold mb-4">Recommendations</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-4">
-                            <div className="bg-white p-4 rounded-lg shadow text-gray-900 flex flex-col gap-4 items-center">
-                                <div className="flex items-center gap-2 flex-wrap mb-2 justify-center">
-                                    <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs bg-green-100 text-green-700 rounded-full font-semibold">
-                                        <CheckCircle2 size={10} /> rec.matchMethod
-                                    </span>
-                                    <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs bg-purple-100 text-purple-700 rounded-full font-semibold">
-                                        <Sparkles size={10} /> Personalized
-                                    </span>
-                                    <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs bg-blue-100 text-blue-700 rounded-full font-semibold">
-                                        🎯 Genre Match
-                                    </span>
-                                </div>
-                                <div className="flex flex-col gap-2 items-center">
-                                    <img src="favicon.ico" className="w-36 h-36 object-contain rounded-md" />
-                                    <div className="flex-1 min-w-0">
-                                        <div className="flex flex-row items-baseline gap-1.5 min-w-0">
-                                            <h3 className="font-bold text-lg min-w-0">rec.title</h3>
-                                            <p className="text-gray-500 text-sm">by</p>
-                                            <p className="text-blue-600 font-medium shrink-0">rec.artist</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex flex-row justify-between w-full">
-                                        <button className="p-2 bg-indigo-100 text-indigo-700 hover:bg-indigo-200 rounded text-sm font-semibold transition-colors">
-                                            Preview
-                                        </button>
-                                        <div className="flex flex-row gap-4">
-                                            <button>
-                                                <ThumbsUp className="w-6 h-6 hover:text-green-500 hover:cursor-pointer" />
-                                            </button>
-                                            <button>
-                                                <ThumbsDown className="w-6 h-6 hover:text-red-500 hover:cursor-pointer" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <SongCard />
                         </div>
                     </div>
                 </main>
