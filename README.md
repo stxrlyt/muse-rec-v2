@@ -7,3 +7,5 @@ Mapping alternative Turtle file paths to the pages in this folder:
 songCard.tsx can be attributed to either the songs in history.ttl, behave-knowledge.ttl, or session.ttl depending on the page it's used in.
 
 The songs recommended in Homepage can be increased or decreased by the <select> component in the top right corner.
+
+Also, add the logic so the Settings will pop up when it is the user's first time accessing MuseRec. Maybe by checking whether the user has the relevant .ttl files in their account?
