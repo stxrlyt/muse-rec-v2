@@ -45,7 +45,7 @@ export default function SongCard({
 
   const displayTitle = title ?? song?.title ?? "rec.title";
   const displayArtist = artist ?? song?.artist ?? "rec.artist";
-  const displayImage = imageSrc ?? song?.imageSrc ?? "favicon.ico";
+  const displayImage = imageSrc ?? song?.imageSrc ?? "https://images.genius.com/2e57a191dbf4415737d22eeb90b1fb99.1000x1000x1.png";
   const displayMatchMethod = matchMethod ?? song?.matchMethod ?? "rec.matchMethod";
   const showPersonalized = isPersonalized ?? song?.isPersonalized ?? true;
   const showGenreMatch = isGenreMatch ?? song?.isGenreMatch ?? true;
@@ -113,9 +113,8 @@ export default function SongCard({
             <button
               type="button"
               onClick={handleLike}
-              className={`hover:cursor-pointer transition-colors ${
-                currentRating === "like" ? "text-green-600" : "text-gray-700 hover:text-green-500"
-              }`}
+              className={`hover:cursor-pointer transition-colors ${currentRating === "like" ? "text-green-600" : "text-gray-700 hover:text-green-500"
+                }`}
               title="Like"
             >
               <ThumbsUp
@@ -125,9 +124,8 @@ export default function SongCard({
             <button
               type="button"
               onClick={handleDislike}
-              className={`hover:cursor-pointer transition-colors ${
-                currentRating === "dislike" ? "text-red-600" : "text-gray-700 hover:text-red-500"
-              }`}
+              className={`hover:cursor-pointer transition-colors ${currentRating === "dislike" ? "text-red-600" : "text-gray-700 hover:text-red-500"
+                }`}
               title="Dislike"
             >
               <ThumbsDown

@@ -84,8 +84,7 @@ export default function Home() {
           <div className="p-3 bg-indigo-50 border border-indigo-200 rounded-md flex items-center gap-2 text-indigo-800 text-sm">
             <History size={16} />
             <span>
-              🎯 <strong>Personalization active:</strong> Using your personalization.interactionCount past interactions.
-              Top artists:
+              🎯 <strong>Personalization active:</strong> Using your <strong>interactionCount</strong> past interactions. Top artists:
             </span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-4">
