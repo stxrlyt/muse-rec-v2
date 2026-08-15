@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { SolidSessionProvider } from '@/src/contexts/SolidSessionContext'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +26,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {children}
+        <SolidSessionProvider>
+          {children}
+        </SolidSessionProvider>
         <Script
           src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1"
           type="module"

@@ -1,8 +1,25 @@
 "use client";
-import { X } from "lucide-react";
 
-export default function SettingsModal({ isOpen, onClose }) {
-    
+import { X } from "lucide-react";
+import GenreSelector, { Genre } from "./genreSelector";
+
+interface SettingsModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  genres?: Genre[];
+  selectedGenres?: string[];
+  onGenreToggle?: (genreValue: string) => void;
+  onSave?: () => void;
+}
+
+export default function SettingsModal({
+  isOpen,
+  onClose,
+  genres,
+  selectedGenres = [],
+  onGenreToggle = () => {},
+  onSave,
+}: SettingsModalProps) {
   if (!isOpen) return null;
 
   return (
@@ -29,16 +46,17 @@ export default function SettingsModal({ isOpen, onClose }) {
               <option>25-34</option>
               <option>35-44</option>
             </select>
+          </div>
+
+          <div className="flex flex-col gap-1">
             <label className="text-sm font-medium">Favorite Genres</label>
-            <div className="flex flex-wrap gap-2">
-              <button
-                className={`px-3 py-1 rounded-full text-xs font-semibold border 
-                  ? 'bg-indigo-600 text-white border-indigo-600'
-                  : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
-                }`}
-              >
-              </button>
-            </div>
+            <GenreSelector
+              genres={genres}
+              selectedGenres={selectedGenres}
+              onGenreToggle={onGenreToggle}
+              maxSelection={3}
+              showCount={true}
+            />
           </div>
         </div>
 
@@ -49,7 +67,13 @@ export default function SettingsModal({ isOpen, onClose }) {
           >
             Cancel
           </button>
-          <button className="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition-colors">
+          <button
+            onClick={() => {
+              if (onSave) onSave();
+              onClose();
+            }}
+            className="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition-colors"
+          >
             Save
           </button>
         </div>
